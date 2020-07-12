@@ -18,9 +18,27 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final questions = const [
+    {
+      'questionText': 'What\'s your favorite color',
+      'answers': ['Black', 'Red', 'Green', 'White'],
+    },
+    {
+      'questionText': 'What\'s your favorite animarl?',
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Loin'],
+    },
+    {
+      'questionText': 'Who\'s your favorite instractor?',
+      'answers': ['Max', 'Max', 'Max', 'Max'],
+    },
+  ];
   var _questionIndex = 0;
 
   void _answerQuestion() {
+    if (_questionIndex < questions.length) {
+      print('We have more question');
+    }
+
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
@@ -29,20 +47,11 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      {
-        'questionText': 'What\'s your favorite color',
-        'answers': ['Black', 'Red', 'Green', 'White'],
-      },
-      {
-        'questionText': 'What\'s your favorite animarl?',
-        'answers': ['Rabbit', 'Snake', 'Elephant', 'Loin'],
-      },
-      {
-        'questionText': 'Who\'s your favorite instractor?',
-        'answers': ['Max', 'Max', 'Max', 'Max'],
-      },
-    ];
+    //var dammy = ['hello'];
+    //dammy.add('Max');
+    //print(dammy);
+    //questions =[]; //変数がconst型の場合これは機能しない
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
